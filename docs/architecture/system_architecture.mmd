@@ -1,0 +1,33 @@
+flowchart LR
+    Client["Client<br/>(curl / browser / script)"]
+    
+    Config["Environment Configuration<br/>(SERVICE_DB_PATH)"]
+    
+    Monitor["Monitoring Script<br/>health_check.py"]
+    
+    Automation["Automation Script<br/>restart_service.sh"]
+
+    %% Grouping core runtime components
+    subgraph Runtime["Service Runtime"]
+        Service["Flask Service<br/>/metrics endpoint"]
+        DB["SQLite Database<br/>shipments table"]
+        Logs["Logging Subsystem<br/>(file / stdout fallback)"]
+    end
+
+    %% Primary request flow
+    Client -->|HTTP GET /metrics| Service
+    Service -->|"reads (at startup)"| Config
+    Service -->|queries| DB
+    Service -->|writes logs| Logs
+
+    %% Monitoring and automation
+    Monitor -->|health check| Service
+    Automation -->|start / stop / restart| Service
+
+    %% Styling arrows (links)
+    linkStyle 0 stroke:red,stroke-width:2px
+    linkStyle 1 stroke:red,stroke-width:2px
+    linkStyle 2 stroke:red,stroke-width:2px
+    linkStyle 3 stroke:red,stroke-width:2px
+    linkStyle 4 stroke:red,stroke-width:2px
+    linkStyle 5 stroke:red,stroke-width:2px

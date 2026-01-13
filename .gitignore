@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Runtime artifacts
+logs/
+data/*.db
+
+# Codespaces / terminal artifacts
+session*.log
+
+# Environment
+.env
