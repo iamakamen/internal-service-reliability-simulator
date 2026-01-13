@@ -121,13 +121,13 @@ a clear operational timeline.
 
 Given more time, the following improvements would be prioritised:
 
- - [] Add startup-time validation for database schema compatibility
- - [] Replace manual process management with systemd unit files
- - [] Introduce structured JSON logging for easier aggregation
- - [] Add request latency tracking to monitoring signals
- - [] Implement controlled schema migration tooling
- - [] Add basic authentication to the metrics endpoint
- - [] Extend monitoring to detect abnormal metric trends
+- [ ] Add startup-time validation for database schema compatibility
+- [ ] Replace manual process management with systemd unit files
+- [ ] Introduce structured JSON logging for easier aggregation
+- [ ] Add request latency tracking to monitoring signals
+- [ ] Implement controlled schema migration tooling
+- [ ] Add basic authentication to the metrics endpoint
+- [ ] Extend monitoring to detect abnormal metric trends
 
 These enhancements would further harden the system for long-term production use.
 
